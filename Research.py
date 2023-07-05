@@ -8,6 +8,7 @@ output = os.path.abspath('.')
 wb = load_workbook(path)
 sheet = wb['Sheet1']
 sheet2 = wb.create_sheet("Data")
+sheet3 = wb.create_sheet("Data2")
 print(wb.sheetnames)
 m_row = sheet.max_row
 
@@ -151,8 +152,15 @@ while(i <= m_row):
     score2 = sheet2.cell(row=i,column=s2_end - 6).value
     score3 = sheet2.cell(row=i,column=s3_end - 5).value
     total = score1+score2+score3
+    #write in Data sheet
     sheet2.cell(row=i,column=s3_end -4,value=total).value
     sheet2.cell(row=i,column=1,value=i).value
+    #write in Data2 sheet
+    sheet3.cell(row=i,column=1,value=i).value
+    sheet3.cell(row=i,column=2,value=score1).value
+    sheet3.cell(row=i,column=3,value=score2).value
+    sheet3.cell(row=i,column=4,value=score3).value
+    sheet3.cell(row=i,column=5,value=total).value
     i = i+1
 
 #write comments
@@ -161,6 +169,11 @@ sheet2['Q1'] = "IAS Total"
 sheet2['AL1'] = "SAS Total"
 sheet2['BG1'] = "SDS Total"
 sheet2['BH1'] = "Total"
+sheet3['A1'] = "No."
+sheet3['B1'] = "IAS"
+sheet3['C1'] = "SAS"
+sheet3['D1'] = "SDS"
+sheet3['E1'] = "Total"
 
 wb.save("data.xlsx")
 wb.close()
