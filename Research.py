@@ -3,7 +3,7 @@ from openpyxl import load_workbook
 import os
 
 #initial setup
-path = "C:/Users/haruk/Downloads/226347839_0_青少年校园霸凌与心理健康调查_208_207.xlsx"
+path = "C:/Users/haruk/Downloads/latest.xlsx"
 output = os.path.abspath('.')
 wb = load_workbook(path)
 sheet = wb['Sheet1']
